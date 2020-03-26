@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44BAD604242C7272008059E3 /* PluginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BAD603242C7272008059E3 /* PluginManager.swift */; };
+		44BAD606242C9F2A008059E3 /* ExecutablePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BAD605242C9F2A008059E3 /* ExecutablePlugin.swift */; };
 		A70B6234237AF87000A2BA73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70B6233237AF87000A2BA73 /* AppDelegate.swift */; };
 		A70B6236237AF87000A2BA73 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70B6235237AF87000A2BA73 /* ContentView.swift */; };
 		A70B6238237AF87700A2BA73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A70B6237237AF87700A2BA73 /* Assets.xcassets */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		44BAD603242C7272008059E3 /* PluginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginManager.swift; sourceTree = "<group>"; };
+		44BAD605242C9F2A008059E3 /* ExecutablePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecutablePlugin.swift; sourceTree = "<group>"; };
 		A70B6230237AF87000A2BA73 /* Ambar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ambar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A70B6233237AF87000A2BA73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A70B6235237AF87000A2BA73 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -87,6 +91,8 @@
 			children = (
 				A70B624B237B003900A2BA73 /* StatusBarController.swift */,
 				A70B6251237B078200A2BA73 /* EventMonitor.swift */,
+				44BAD603242C7272008059E3 /* PluginManager.swift */,
+				44BAD605242C9F2A008059E3 /* ExecutablePlugin.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -172,8 +178,10 @@
 			files = (
 				A70B6236237AF87000A2BA73 /* ContentView.swift in Sources */,
 				A70B6252237B078200A2BA73 /* EventMonitor.swift in Sources */,
+				44BAD604242C7272008059E3 /* PluginManager.swift in Sources */,
 				A70B624C237B003900A2BA73 /* StatusBarController.swift in Sources */,
 				A70B6234237AF87000A2BA73 /* AppDelegate.swift in Sources */,
+				44BAD606242C9F2A008059E3 /* ExecutablePlugin.swift in Sources */,
 				A70B6250237B022700A2BA73 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,7 +321,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Ambar/Preview Content\"";
-				DEVELOPMENT_TEAM = 562D22S6BD;
+				DEVELOPMENT_TEAM = QASXW4Q572;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Ambar/Info.plist;
@@ -336,7 +344,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Ambar/Preview Content\"";
-				DEVELOPMENT_TEAM = 562D22S6BD;
+				DEVELOPMENT_TEAM = QASXW4Q572;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Ambar/Info.plist;

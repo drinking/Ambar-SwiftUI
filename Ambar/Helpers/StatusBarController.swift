@@ -7,6 +7,7 @@
 //
 
 import AppKit
+import SwiftUI
 
 class StatusBarController
 {
@@ -33,34 +34,29 @@ class StatusBarController
         eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown], handler: mouseEventHandler)
     }
     
-    @objc func togglePopover(sender: AnyObject)
-    {
-        if(popover.isShown)
-        {
+    @objc func togglePopover(sender: AnyObject) {
+        if(popover.isShown) {
             hidePopover(sender)
-        }
-        else
-        {
+        } else {
             showPopover(sender)
         }
     }
     
-    func showPopover(_ sender: AnyObject)
-    {
+    func showPopover(_ sender: AnyObject) {
+        
+
+        popover.contentViewController?.view = NSHostingView(rootView: ContentView())
         popover.show(relativeTo: statusBarButton.bounds, of: statusBarButton, preferredEdge: NSRectEdge.maxY)
         eventMonitor?.start()
     }
     
-    func hidePopover(_ sender: AnyObject)
-    {
+    func hidePopover(_ sender: AnyObject) {
         popover.performClose(sender)
         eventMonitor?.stop()
     }
     
-    func mouseEventHandler(_ event: NSEvent?)
-    {
-        if(popover.isShown)
-        {
+    func mouseEventHandler(_ event: NSEvent?) {
+        if(popover.isShown) {
             hidePopover(event!)
         }
     }
