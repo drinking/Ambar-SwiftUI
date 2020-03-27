@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  Ambar
+//  Cuber
 //
 //  Created by Anagh Sharma on 12/11/19.
 //  Copyright © 2019 Golden Chopper. All rights reserved.
@@ -8,6 +8,7 @@
 
 import SwiftUI
 import AppKit
+import Combine
 
 
 struct ContentView: View {
@@ -24,17 +25,26 @@ struct ContentView: View {
     
     var preferences = MenuButton("+") {
         
-        Button("change plugin folder") {
+        Button("Refresh All") {
+            PluginManager.default.refreshAll()
+        }
+        
+        Button("Change Plugin Folder") {
             PluginManager.default.pickPluginDirectory()
         }
+        
+        Button("Quit") {
+            NSApp.terminate(NSApplication.shared)
+        }
+        
     }
     
     var body: some View {
 
         VStack(alignment: .leading, spacing: 0) {
-            HStack(alignment: .center, spacing: 10) {
-                Text("Ambar").frame(width: 280.0, height: 20.0, alignment: .center)
-                preferences
+            ZStack(alignment: .trailing) {
+                Text("Cuber").frame(width: 260.0, height: 20.0, alignment: .center).padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
+                preferences.frame(width: 30, height: 30, alignment: .center)
             }
             
             Divider().frame(width: 300, height: 2, alignment: .leading).foregroundColor(.white)
@@ -49,7 +59,7 @@ struct ContentView: View {
 }
     
 struct PluginRow: View {
-    var plugin: Plugin
+    @ObservedObject var plugin: Plugin
 
     var body: some View {
         
@@ -59,22 +69,36 @@ struct PluginRow: View {
                 .fontWeight(.regular)
                 .padding(.horizontal, 12.0)
                 .frame(minWidth: 100, idealWidth: 200, maxWidth: 220, minHeight: nil, idealHeight: nil, maxHeight: nil, alignment: .leading)
-//                .frame(width: 250, height: 30 , alignment: .leading)
             
-            MenuButton("+") {
-                Text("xxxx")
-                Button("refresh") {
+            
+            if(self.plugin.executing) {
+                Text("loading...")
+            }else {
+                MenuButton("+") {
+                    ForEach(plugin.result, id: \.self) { result in
 
-                }
-
-                ForEach(plugin.getResult(), id: \.self) { result in
-                    Button(result) {
-                        print("Create new contact")
+                        Group {
+                            if result == "---" {
+                                Text("-----").foregroundColor(.gray).frame(width: 100, height: 3, alignment: .leading)
+                            }else {
+                                Button(result) {
+                                    print("Create new contact")
+                                }
+                            }
+                        
+                            
+                            
+                            
+                        }
+                            
                     }
-                }
-            }.frame(minWidth: 20, idealWidth: 40, maxWidth: 80, minHeight: nil, idealHeight: nil, maxHeight: nil, alignment: .center)
+                }.frame(minWidth: 20, idealWidth: 40, maxWidth: 80, minHeight: nil, idealHeight: nil, maxHeight: nil, alignment: .center)
+            }
+            
+
         }
-//        frame(minWidth: 300, idealWidth: 300, maxWidth: 300, minHeight: nil, idealHeight: nil, maxHeight: nil, alignment: .leading)
+        
+
     }
 }
 

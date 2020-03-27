@@ -1,6 +1,6 @@
 //
 //  ExecutablePlugin.swift
-//  Ambar
+//  Cuber
 //
 //  Created by drinking on 2020/3/26.
 //  Copyright © 2020 Golden Chopper. All rights reserved.

@@ -22,7 +22,7 @@
 /* Begin PBXFileReference section */
 		44BAD603242C7272008059E3 /* PluginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginManager.swift; sourceTree = "<group>"; };
 		44BAD605242C9F2A008059E3 /* ExecutablePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecutablePlugin.swift; sourceTree = "<group>"; };
-		A70B6230237AF87000A2BA73 /* Ambar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ambar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A70B6230237AF87000A2BA73 /* Cuber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cuber.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A70B6233237AF87000A2BA73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A70B6235237AF87000A2BA73 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A70B6237237AF87700A2BA73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,7 +57,7 @@
 		A70B6231237AF87000A2BA73 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A70B6230237AF87000A2BA73 /* Ambar.app */,
+				A70B6230237AF87000A2BA73 /* Cuber.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,9 +108,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A70B622F237AF87000A2BA73 /* Ambar */ = {
+		A70B622F237AF87000A2BA73 /* Cuber */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A70B6243237AF87700A2BA73 /* Build configuration list for PBXNativeTarget "Ambar" */;
+			buildConfigurationList = A70B6243237AF87700A2BA73 /* Build configuration list for PBXNativeTarget "Cuber" */;
 			buildPhases = (
 				A70B622C237AF87000A2BA73 /* Sources */,
 				A70B622D237AF87000A2BA73 /* Frameworks */,
@@ -120,9 +120,9 @@
 			);
 			dependencies = (
 			);
-			name = Ambar;
+			name = Cuber;
 			productName = Ambar;
-			productReference = A70B6230237AF87000A2BA73 /* Ambar.app */;
+			productReference = A70B6230237AF87000A2BA73 /* Cuber.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -153,7 +153,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A70B622F237AF87000A2BA73 /* Ambar */,
+				A70B622F237AF87000A2BA73 /* Cuber */,
 			);
 		};
 /* End PBXProject section */
@@ -371,7 +371,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A70B6243237AF87700A2BA73 /* Build configuration list for PBXNativeTarget "Ambar" */ = {
+		A70B6243237AF87700A2BA73 /* Build configuration list for PBXNativeTarget "Cuber" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A70B6244237AF87700A2BA73 /* Debug */,

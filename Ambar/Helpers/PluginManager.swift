@@ -1,6 +1,6 @@
 //
 //  PluginManager.swift
-//  Ambar
+//  Cuber
 //
 //  Created by drinking on 2020/3/26.
 //  Copyright © 2020 Golden Chopper. All rights reserved.
@@ -8,10 +8,14 @@
 
 import Foundation
 import AppKit
+import Combine
 
 let kPluginDirectory = "pluginDirectory"
 
-class Plugin :Identifiable {
+class Plugin :Identifiable, ObservableObject{
+    
+    let objectWillChange = PassthroughSubject<Void, Never>()
+
     
     let id : Int
     let name : String
@@ -21,29 +25,28 @@ class Plugin :Identifiable {
         self.id = id
         self.name = name
         self.path = path
+        result = []
     }
     
-    var result:[String] = []
+    var result:[String] {
+        willSet {
+            self.objectWillChange.send()
+        }
+    }
+    
     var executing = false
     
-    func getResult() -> [String] {
-        
+    func execute() {
         if result.count == 0 && !executing {
             executing = true
             DispatchQueue.global(qos: .background).async {
-                
-                self.result = executePlugin(plugin: self)
-                self.executing = false
+                 let result = executePlugin(plugin: self)
                 DispatchQueue.main.async {
-                    //to do somthing
-                    print("This is run on the main queue, after the previous code in outer block")
+                    self.executing = false
+                    self.result = result
                 }
             }
-            return ["loading"]
         }
-        
-     
-        return result
     }
     
 }
@@ -110,12 +113,20 @@ class PluginManager:NSObject,NSOpenSavePanelDelegate {
             }.enumerated().map { (index,element) -> Plugin in
                 return Plugin(id: index, name: element, path: "\(path)/\(element)")
             }
+            refreshAll()
             return self.plugins!
         } catch {
              print("Error:", error)
         }
         
         return []
+    }
+    
+    func refreshAll() {
+        self.plugins?.forEach({ (plugin) in
+            plugin.result = []
+            plugin.execute()
+        })
     }
     
     
