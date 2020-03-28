@@ -60,6 +60,7 @@ struct ContentView: View {
     
 struct PluginRow: View {
     @ObservedObject var plugin: Plugin
+    @State var spin = false
 
     var body: some View {
         
@@ -72,11 +73,17 @@ struct PluginRow: View {
             
             
             if(self.plugin.executing) {
-                Text("loading...")
+                Image("icon_wait").rotationEffect(.degrees(spin ? 360:0))
+                    .animation(Animation.linear(duration: 2.0)
+                        .repeatForever(autoreverses: false))
+                    .onAppear() {
+                        self.spin.toggle()
+                }
             }else {
-                MenuButton("+") {
+                
+                MenuButton(label:Image("icon_item_settings")) {
+                    
                     ForEach(plugin.result, id: \.self) { result in
-
                         Group {
                             if result == "---" {
                                 Text("-----").foregroundColor(.gray).frame(width: 100, height: 3, alignment: .leading)
@@ -85,14 +92,11 @@ struct PluginRow: View {
                                     print("Create new contact")
                                 }
                             }
-                        
-                            
-                            
-                            
                         }
                             
                     }
-                }.frame(minWidth: 20, idealWidth: 40, maxWidth: 80, minHeight: nil, idealHeight: nil, maxHeight: nil, alignment: .center)
+                }.menuButtonStyle(BorderlessButtonMenuButtonStyle())
+                .frame(minWidth: 20, idealWidth: 20, maxWidth: 20, minHeight: nil, idealHeight: nil, maxHeight: 20, alignment: .center)
             }
             
 
